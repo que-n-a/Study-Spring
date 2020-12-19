@@ -3,13 +3,13 @@ package org.zerock.controller;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -89,18 +89,36 @@ public class SampleController {
 	
 	@GetMapping("/ex03") //ex) http://localhost:8090/sample/ex03?title=test&dueDate=2018-01-01
 	public String ex03(TodoDTO todo) {
+		
 		log.info("todo: " + todo);
 		
 		return "ex03";
 	}
 	
-	@GetMapping("ex04")
-	public String ex04(SampleDTO dto, int page) {
+	/*
+	 * @GetMapping("/ex04") public String ex04(SampleDTO dto, @ModelAttribute("page") int page) {
+	 * 
+	 * log.info("dto: " + dto); log.info("page: " + page);
+	 * 
+	 * return "/sample/ex04"; }
+	 */
+	
+	//응용해보쟈
+	
+	@GetMapping("/ex04")
+	public void ex041(@ModelAttribute("prac") SampleDTO dto, String name) {
 		
 		log.info("dto: " + dto);
-		log.info("page: " + page);
-		
-		return "/sample/ex04";
+		log.info("name: " + name);
+
 	}
+		
+	/*
+	 * //RedirectAttributes model타입과 더불어 스프링 mvc의 자동전달 타입.
+	 * rttr.addFlashAttribute("age", 10); rttr.addFlashAttribute("age", 10);
+	 * 
+	 * return "redirect:/";
+	 */
+	
 	
 }
