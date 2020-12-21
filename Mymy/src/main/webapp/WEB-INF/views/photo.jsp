@@ -13,10 +13,10 @@
 <body>
     <nav class="header">
         <ul>
-            <li><a class="home button" href="/home">홈</li>
-            <li><a class="aboutme button" href="/aboutMe">자기소개</li>
-            <li><a class="myphoto button" href="/photo">내 사진</li>
-            <li><a class="wtn button" href="/aboutme/today">지금은 몇 시?</li>
+            <li><a href="/home">홈</a></li>
+            <li><a href="/aboutMe">자기소개</a></li>
+            <li><a href="/photo">내 사진</a></li>
+            <li><a href="/aboutme/today">지금은 몇 시?</a></li>
         </ul>
     </nav>
 
