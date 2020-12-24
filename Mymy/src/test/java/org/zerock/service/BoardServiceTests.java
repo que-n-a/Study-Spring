@@ -39,4 +39,38 @@ public class BoardServiceTests {
 		
 		log.info("생성된 게시물의 번호: " + board.getBno());
 	}
+	
+	@Test
+	public void testGetList() {
+		
+		service.getList().forEach(board -> log.info(board));
+	}
+	
+	@Test
+	public void testGet() {
+		
+		log.info(service.get(1L));
+	}
+	
+	@Test
+	public void testDelete() {
+		
+		//게시물 번호의 존재 여부를 확인하고 테스트할 것.
+		log.info("REMOVE REWSULT: " + service.remove(2L));
+		
+	}
+	
+	@Test
+	public void testUpdate() {
+		
+		BoardVO board  = service.get(1L); //특정게시물 조회.
+		
+		if (board == null) { //특정 게시물이 없다면, 그냥 리턴.
+			
+			return;
+		}
+		
+		board.setTitle("제목을 수정합니다."); //특정 게시물이 있다면, 타이틀 수정.
+		log.info("MODIFY RESULT: " + service.modify(board));
+	}
 }
