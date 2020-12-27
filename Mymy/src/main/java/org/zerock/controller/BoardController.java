@@ -10,7 +10,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVO;
 import org.zerock.service.BoardService;
 
-import jdk.vm.ci.code.Register;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
