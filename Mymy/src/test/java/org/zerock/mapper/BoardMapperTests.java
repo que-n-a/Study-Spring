@@ -9,12 +9,15 @@ import org.zerock.domain.BoardVO;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
+import org.zerock.domain.Criteria;
+
+import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 @Log4j
 public class BoardMapperTests {
-	
+
 	@Setter(onMethod_= @Autowired)
 	private BoardMapper mapper;
 	
@@ -46,7 +49,7 @@ public class BoardMapperTests {
 			board.setWriter("newbie");
 			
 			mapper.insertSelectKey(board);
-			
+
 			log.info(board);
 		}
 		
@@ -75,5 +78,19 @@ public class BoardMapperTests {
 			
 			int count = mapper.update(board);
 			log.info("UPDATE COUNT: " + count);
+		}
+
+		@Test
+	public void testPaging() {
+
+		Criteria cri = new Criteria();
+		//2개씩 4페이지
+			cri.setPageNum(4);
+			cri.setAmount(2);
+
+		List<BoardVO> list = mapper.getListWithPaging(cri);
+
+		list.forEach(board -> log.info(board));
+
 		}
 }
