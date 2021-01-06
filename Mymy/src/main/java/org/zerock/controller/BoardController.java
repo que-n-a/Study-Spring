@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criteria;
+import org.zerock.domain.PageDTO;
 import org.zerock.service.BoardService;
 
 import lombok.AllArgsConstructor;
@@ -25,12 +27,21 @@ public class BoardController {
 
 	private BoardService service;
 
-	@GetMapping("/list")
+/*	@GetMapping("/list")
 	public void list(Model model) {// 게시물 목록을 전달해야 하므로 Model을 파라미터로 지정.
 
 		log.info("list");
 
 		model.addAttribute("list", service.getList()); // BoardServiceImpl객체의 getList() 결과를 담아 전달.
+	}*/
+
+	@GetMapping("/list")
+	public void list(Criteria cri , Model model) {// 페이징 객체와 게시물 목록을 전달해야 하므로 Model을 파라미터로 지정.
+
+		log.info("list" + cri);
+
+		model.addAttribute("list", service.getList(cri)); // BoardServiceImpl객체의 getList() 결과를 담아 전달.
+		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 	}
 
 	@GetMapping("/register") //게시물 등록 작업-> post지만 화면에서 입력 받기위해 get으로 입력페이지를 볼 수 있도록 콘트롤러에 메서드 추가.

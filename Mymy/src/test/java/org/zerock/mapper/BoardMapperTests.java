@@ -20,11 +20,11 @@ public class BoardMapperTests {
 
 	@Setter(onMethod_= @Autowired)
 	private BoardMapper mapper;
-	
+
 	@Test
 	public void testGetList() {
 		mapper.getList().forEach(board -> log.info(board));
-		
+
 		}
 	
 		@Test
@@ -90,7 +90,8 @@ public class BoardMapperTests {
 
 		List<BoardVO> list = mapper.getListWithPaging(cri);
 
-		list.forEach(board -> log.info(board));
+		list.forEach(board -> log.info(board.getBno()));
 
 		}
+
 }

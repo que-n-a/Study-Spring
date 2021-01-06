@@ -17,13 +17,5 @@ public interface BoardService {
 	
 	// public List<BoardVO> getList();
 
-	public List<BoardVO> getList(Criteria cri) {
-
-		log.info("get List with criteria:" + cri);
-
-		return mapper.getListwithPaging(cri);
-
-	}
-	
-	
+	public List<BoardVO> getList(Criteria cri);
 }

@@ -11,6 +11,7 @@ import org.zerock.domain.BoardVO;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
+import org.zerock.domain.Criteria;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -39,11 +40,12 @@ public class BoardServiceTests {
 		
 		log.info("생성된 게시물의 번호: " + board.getBno());
 	}
-	
+
 	@Test
 	public void testGetList() {
-		
-		service.getList().forEach(board -> log.info(board));
+
+		// service.getList().forEach(board -> log.info(board));
+		service.getList(new Criteria(2,10)).forEach(board -> log.info(board));
 	}
 	
 	@Test
