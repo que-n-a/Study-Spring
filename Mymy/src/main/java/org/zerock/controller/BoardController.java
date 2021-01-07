@@ -41,7 +41,7 @@ public class BoardController {
 		log.info("list" + cri);
 
 		model.addAttribute("list", service.getList(cri)); // BoardServiceImpl객체의 getList() 결과를 담아 전달.
-		model.addAttribute("pageMaker", new PageDTO(cri, 123));
+		model.addAttribute("pageMaker", new PageDTO(cri, 123)); //전체 데이터 수의 처리가 이루어지지 않았으므로, 임의의 수 123으로 지정.
 	}
 
 	@GetMapping("/register") //게시물 등록 작업-> post지만 화면에서 입력 받기위해 get으로 입력페이지를 볼 수 있도록 콘트롤러에 메서드 추가.

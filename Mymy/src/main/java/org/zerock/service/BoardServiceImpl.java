@@ -16,8 +16,7 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class BoardServiceImpl implements BoardService {
 
-	//spring 4.3 이상에서 자동처리
-	@Autowired
+	// @Autowired // spring 4.3 이상에서 자동처리
 	private BoardMapper mapper;
 	
 	

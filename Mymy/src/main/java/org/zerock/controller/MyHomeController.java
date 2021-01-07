@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import lombok.extern.log4j.Log4j;
 
 @Controller
-@RequestMapping("/*")
+@RequestMapping("/home/*")
 @Log4j
 public class MyHomeController {
 	

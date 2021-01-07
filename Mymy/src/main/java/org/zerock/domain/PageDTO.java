@@ -11,18 +11,18 @@ public class PageDTO {
     private int endPage;
     private boolean prev, next;
 
-    private int total;
+    private int total; // 전체 데이터 수
     private Criteria cri;
 
-    public PageDTO(Criteria cri, int total) {
+    public PageDTO(Criteria cri, int total) { // 생성자 정의
 
         this.cri = cri;
         this.total = total;
 
-        this.endPage = (int) (Math.ceil(cri.getPageNum() / 2.0)) * 2; // amount 2
+        this.endPage = (int) (Math.ceil(cri.getPageNum() / 10.0)) * 10; // amount 10
         this.startPage = this.endPage - 9;
 
-        int realEnd = (int) (Math.ceil(total * 1.0) / cri.getAmount());
+        int realEnd = (int) (Math.ceil(total * 1.0) / cri.getAmount()); // 전체 데이터 *
 
         if (realEnd < this.startPage) {
             this.endPage = realEnd;

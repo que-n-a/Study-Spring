@@ -7,8 +7,6 @@ import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
 
 public interface BoardMapper { //BoardMapper의 파라미터를 선언. 이 인터페이스를 DAO라고 생각하면 되겠다.
-	
-	
 
 	
 //	  @Select("select * from tbl_board where bno > 0 ") == xml 파일에 적어주었으므로, 필요없음.
