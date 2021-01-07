@@ -153,6 +153,7 @@ $(document).ready(function () {
         e.preventDefault();
         actionForm.append("<input type='hidden' name='bno' value='" +
             $(this).attr("href") + "'>");
+        actionForm.attr("action","/board/get");
         actionForm.submit();
     });
 });
