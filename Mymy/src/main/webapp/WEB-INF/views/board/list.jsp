@@ -27,7 +27,7 @@
 
                     <c:forEach items="${list}" var="board">
                     <tr>
-                        <td><c:out value="${board.bno}"/></td>
+                        <td><a class="move" href="<c:out value="${board.bno}"/>"></a></td>
                         <td><c:out value="${board.title}"/></td>
                         <td><c:out value="${board.writer}"/></td>
                         <td><fmt:formatDate pattern="yyyy-MM-dd"
@@ -108,10 +108,8 @@
 </form>
 
 
-
-
 <script type="text/javascript"> //상황에 따른 메시지 확인 코드.
-$(document).ready(function() {
+$(document).ready(function () {
 
     var result = '<c:out value="${result}"/>';
 
@@ -140,13 +138,22 @@ $(document).ready(function() {
 
     var actionForm = $("#actionForm");
 
-    $(".paginate_button a").on("click", function(e) {
+    $(".paginate_button a").on("click", function (e) {
 
         e.preventDefault();
 
         console.log('click');
 
         actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+        actionForm.submit();
+    });
+
+    $(".move").on("click", function (e) {
+
+        e.preventDefault();
+        actionForm.append("<input type'hidden' name='bno' value='" +
+            $(this).attr("href") + "'>");
+        actionForm.submit();
     });
 });
 </script>
