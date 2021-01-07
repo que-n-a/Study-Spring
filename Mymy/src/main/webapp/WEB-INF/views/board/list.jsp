@@ -28,7 +28,7 @@
                     <c:forEach items="${list}" var="board">
                     <tr>
                         <td>
-                            <a class='move' href='<c:out value="${board.bno}"/>'></a></td>
+                            <a class='move' href='<c:out value="${board.bno}"/>'><c:out value="${board.bno}"/></a></td>
                         <td><c:out value="${board.title}"/></td>
                         <td><c:out value="${board.writer}"/></td>
                         <td><fmt:formatDate pattern="yyyy-MM-dd"
