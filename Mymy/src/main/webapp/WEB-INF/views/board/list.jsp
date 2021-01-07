@@ -151,7 +151,7 @@ $(document).ready(function () {
     $(".move").on("click", function (e) {
 
         e.preventDefault();
-        actionForm.append("<input type'hidden' name='bno' value='" +
+        actionForm.append("<input type='hidden' name='bno' value='" +
             $(this).attr("href") + "'>");
         actionForm.submit();
     });
